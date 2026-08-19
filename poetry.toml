@@ -1,8 +1,8 @@
 virtualenvs.create = true
-virtualenvs.in-project = false
+virtualenvs.in-project = true
 virtualenvs.options.always-copy = true
 virtualenvs.options.no-pip = true
 virtualenvs.options.system-site-packages = false
-virtualenvs.path = "{cache-dir}/virtualenvs"  # /path/to/cache/directory/virtualenvs
+virtualenvs.path = "./virtualenvs"  # /path/to/cache/directory/virtualenvs
 virtualenvs.prompt = "{project_name}-py{python_version}"
 virtualenvs.use-poetry-python = false
