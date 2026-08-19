@@ -1,0 +1,68 @@
+# Description: Project definition file (designed for use with Poetry)
+#
+# Copyright (C) 2026 J.Cincotta
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <https://www.gnu.org/licenses/>.
+#
+#
+[tool.poetry]
+name = "beach-count"
+version = "0.1.0"
+description = "beach count project"
+authors = ["Sarah Stuart", "Joseph Cincotta"]
+license = "MIT"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.13"
+jinja2 = "^3.1.6"
+tqdm = "^4.70.0"
+pillow = "^12.3.0"
+LightAgent = "^0.10.0"
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^4.6.0"
+bandit = "^1.7.10"
+pytest = "^9.1.1"
+black = "^26.5.1"
+flake8 = "^7.3.0"
+jupyterlab = "^4.6.2"
+ipykernel = "^7.3.0"
+ipywidgets = "^8.1.8"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 128
+target-version = ['py313']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+  | notebooks
+)/
+'''
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv"]
+skips = ["B101"] # Skip assert warnings in tests if run globally

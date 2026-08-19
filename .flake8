@@ -1,0 +1,11 @@
+[flake8]
+extend-ignore = E203, E501, B024, B027
+exclude =
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    old,
+    build,
+    dist,
+    notebook
+max-complexity = 10
