@@ -45,10 +45,10 @@ pull: ## Pull Docker Images
 	docker compose pull
 
 build: ## Build Docker Environment
-	export COMPOSE_BAKE=true;docker compose build master
+	export COMPOSE_BAKE=true;docker compose build beachcount
 
 force-build: pull ## Force rebuild Docker Environment
-	export COMPOSE_BAKE=true;docker compose build --no-cache --progress plain master
+	export COMPOSE_BAKE=true;docker compose build --no-cache --progress plain beachcount
 
 run: ## Start Jupyter
 	docker compose up

@@ -28,20 +28,21 @@ RUN apt-get install -yqq --fix-missing debianutils
 RUN apt-get install -yqq --fix-missing git wget bzip2 openssl build-essential libssl-dev
 RUN apt-get install -yqq --fix-missing libpq-dev
 RUN apt-get install -yqq --fix-missing libgl1 libglib2.0-0 
-RUN apt-get install -yqq --fix-missing nodejs
-RUN apt-get install -yqq --fix-missing python3 python3-pip python3-venv
+RUN apt-get install -yqq --fix-missing python3 python3-pip python3-venv pipx
 RUN apt-get -yqq upgrade
 # Burn the apt bridge...
 RUN apt-get autoremove -y
 RUN rm -rf /var/lib/apt/lists/*
 RUN apt-get clean
-RUN curl -sSL https://install.python-poetry.org | python3 -
-ENV PATH="/root/.local/bin/:$PATH"
+RUN pipx install poetry==2.4.0
 RUN mkdir /project
 RUN mkdir /project/data
+RUN mkdir /project/src
+RUN mkdir /project/notebooks
 WORKDIR /project
+ENV PATH="/root/.local/bin/:$PATH"
 COPY pyproject.toml poetry.lock* ./
 RUN poetry install --with dev --no-interaction --no-ansi
-ENV PYTHONPATH=/project/
+ENV PYTHONPATH=/project/src
 WORKDIR /project
 ENTRYPOINT ["tini", "--"]
