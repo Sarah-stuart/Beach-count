@@ -41,7 +41,6 @@ RUN mkdir /project
 RUN mkdir /project/data
 WORKDIR /project
 COPY pyproject.toml poetry.lock* ./
-COPY LightAgent/ ./LightAgent/
 RUN poetry install --with dev --no-interaction --no-ansi
 ENV PYTHONPATH=/project/
 WORKDIR /project

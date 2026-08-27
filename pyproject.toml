@@ -33,8 +33,6 @@ LightAgent = "^0.10.0"
 
 [tool.poetry.group.dev.dependencies]
 pre-commit = "^4.6.0"
-bandit = "^1.7.10"
-pytest = "^9.1.1"
 black = "^26.5.1"
 flake8 = "^7.3.0"
 jupyterlab = "^4.6.2"
@@ -62,7 +60,3 @@ exclude = '''
   | notebooks
 )/
 '''
-
-[tool.bandit]
-exclude_dirs = ["tests", ".venv"]
-skips = ["B101"] # Skip assert warnings in tests if run globally
