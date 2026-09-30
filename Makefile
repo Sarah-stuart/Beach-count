@@ -53,3 +53,6 @@ force-build: pull ## Force rebuild Docker Environment
 run: ## Start Jupyter
 	docker compose up
 
+fix-permissions: ## Fix permissions on Notebooks
+	sudo chown -R sarah:sarah notebooks
+
